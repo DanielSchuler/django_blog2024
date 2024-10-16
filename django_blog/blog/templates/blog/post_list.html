@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts</title>
+</head>
+<body>
+<h1>Blog Posts</h1>
+<h2>Categories</h2>
+<ul>
+    {% for category in categories %}
+        <li><a href="{% url 'posts_by_category' category.id %}">{{ category.name }}</a></li>
+    {% endfor %}
+</ul>
+<ul>
+    {% for post in posts %}
+    <li>
+        <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
